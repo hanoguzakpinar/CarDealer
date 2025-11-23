@@ -1,4 +1,13 @@
+using CarDealer.Infrastructure;
+using CarDealer.Persistence;
+using CarDealer.Application;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//layers
+builder.Services.AddApplicationServices();
+builder.Services.AddPersistenceServices(builder.Configuration);
+builder.Services.AddInfrastructureServices();
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

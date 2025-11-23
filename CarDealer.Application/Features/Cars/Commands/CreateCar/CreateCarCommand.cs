@@ -7,7 +7,7 @@ using MediatR;
 
 namespace CarDealer.Application.Features.Cars.Commands.CreateCar;
 
-public record CreateCarCommand(string Brand, string Model, int Year, decimal Price) : IRequest<Result<Guid>>;
+public record CreateCarCommand(string Brand, string Model, int Year, decimal Price, string Color) : IRequest<Result<Guid>>;
 
 public class CreateCarCommandHandler : IRequestHandler<CreateCarCommand, Result<Guid>>
 {

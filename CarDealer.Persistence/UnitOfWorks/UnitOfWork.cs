@@ -1,7 +1,7 @@
 using CarDealer.Application.Interfaces.UnitOfWorks;
 using CarDealer.Persistence.Context;
 
-namespace CarDealer.Persistence.UnitOfWork;
+namespace CarDealer.Persistence.UnitOfWorks;
 
 public class UnitOfWork : IUnitOfWork
 {

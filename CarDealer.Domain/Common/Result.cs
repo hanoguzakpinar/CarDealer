@@ -1,3 +1,4 @@
+namespace CarDealer.Domain.Common;
 public class Result<T>
 {
     public T Data { get; private set; }

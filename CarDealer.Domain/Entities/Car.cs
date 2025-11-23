@@ -1,3 +1,6 @@
+using CarDealer.Domain.Common;
+
+namespace CarDealer.Domain.Entities;
 public class Car : BaseEntity
 {
     public string Brand { get; set; }

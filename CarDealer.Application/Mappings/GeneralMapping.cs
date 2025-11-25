@@ -1,4 +1,5 @@
 using AutoMapper;
+using CarDealer.Application.DTOs.Cars;
 using CarDealer.Application.Features.Cars.Commands.CreateCar;
 using CarDealer.Domain.Entities;
 
@@ -9,5 +10,6 @@ public class GeneralMapping : Profile
     public GeneralMapping()
     {
         CreateMap<Car, CreateCarCommand>().ReverseMap();
+        CreateMap<Car, CarDto>().ReverseMap();
     }
 }

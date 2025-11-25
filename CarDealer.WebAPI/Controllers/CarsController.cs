@@ -17,17 +17,17 @@ public class CarsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] CreateCarCommand command)
+    public async Task<IActionResult> Create([FromBody] CreateCarCommand command, CancellationToken ct)
     {
-        var result = await _mediator.Send(command);
+        var result = await _mediator.Send(command, ct);
         if (result.IsSuccess) return Ok(result);
         return BadRequest(result);
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll()
+    public async Task<IActionResult> GetAll(CancellationToken ct)
     {
-        var result = await _mediator.Send(new GetAllCarsQuery());
+        var result = await _mediator.Send(new GetAllCarsQuery(), ct);
         if (result.IsSuccess) return Ok(result);
         return BadRequest(result);
     }

@@ -16,9 +16,9 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
         _dbSet = _context.Set<T>();
     }
 
-    public async Task AddAsync(T entity) => await _dbSet.AddAsync(entity);
+    public async Task AddAsync(T entity, CancellationToken cancellationToken = default) => await _dbSet.AddAsync(entity, cancellationToken);
+    public async Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default) => await _dbSet.AsNoTracking().ToListAsync(cancellationToken);
+    public async Task<T> GetByIdAsync(Guid id, CancellationToken cancellationToken = default) => await _dbSet.FindAsync(id, cancellationToken);
     public void Delete(T entity) => _dbSet.Remove(entity);
-    public async Task<IEnumerable<T>> GetAllAsync() => await _dbSet.ToListAsync();//AsNoTracking eklenebilir.
-    public async Task<T> GetByIdAsync(Guid id) => await _dbSet.FindAsync(id);
     public void Update(T entity) => _dbSet.Update(entity);
 }
